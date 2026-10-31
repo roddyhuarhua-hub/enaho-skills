@@ -31,6 +31,16 @@ PEDIDOS = {
 HERRAMIENTAS = "Bash Read Write Edit Glob Grep Skill"
 
 
+def ruta_claude() -> str:
+    """En Windows, npm instala claude.cmd, que subprocess no ejecuta sin shell: busca el claude.exe real."""
+    ruta = shutil.which("claude")
+    if ruta and ruta.lower().endswith(".cmd"):
+        exe = Path(ruta).parent / "node_modules" / "@anthropic-ai" / "claude-code" / "bin" / "claude.exe"
+        if exe.exists():
+            return str(exe)
+    return ruta or "claude"
+
+
 def preparar_copia(con_skills: bool) -> Path:
     destino = Path(tempfile.mkdtemp(prefix="enaho_eval_"))
     shutil.copytree(RAIZ / "datos", destino / "datos")
@@ -46,7 +56,7 @@ def preparar_copia(con_skills: bool) -> Path:
 def correr(nombre: str, pedido: str, con_skills: bool) -> dict:
     modo = "con_skills" if con_skills else "sin_skills"
     carpeta = preparar_copia(con_skills)
-    cmd = ["claude", "-p", pedido, "--output-format", "stream-json", "--verbose",
+    cmd = [ruta_claude(), "-p", pedido, "--output-format", "stream-json", "--verbose",
            "--allowedTools", HERRAMIENTAS]
     if not con_skills:
         cmd += ["--disallowedTools", "Skill"]
