@@ -44,7 +44,7 @@ Las diferencias de 0.1 puntos con la referencia vienen de ponderar personas con 
 | Validación contra el INEI | Siempre; si falla, se detiene | Ninguna en Cusco; en el mapa solo comparó el total nacional |
 | Dónde deja los archivos | `figuras/` y `mapas/` del proyecto | En una carpeta temporal de Windows (`AppData\Local\Temp`), fuera del repo |
 | Qué entrega | Lo pedido | En urbano/rural agregó dos mapas que nadie pidió |
-| Gráfico | Barras desde 0, un color, valor en cada barra, fuente al pie, 200 dpi | Barras apiladas con pobreza extrema y título genérico |
+| Gráfico | Barras desde 0, un color, valor en cada barra, fuente al pie, 200 dpi | Barras superpuestas (total y extrema) junto a dos mapas con otra paleta; ninguna regla fija |
 | Mapa: escala | Un color (rojos) desde **0** hasta 50, leyenda «% de personas» | Escala de varios colores (amarillo a rojo) que empieza en **6** y termina en 45, lo que exagera las diferencias |
 | Mapa: etiquetas | Un decimal; Callao con su etiqueta afuera | Enteros; la etiqueta de Callao (34) se monta sobre Lima (27) |
 | Unión del mapa | Por código, con `assert` de 25 departamentos | Por código también (esta vez acertó), sin control |
