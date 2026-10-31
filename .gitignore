@@ -1,0 +1,10 @@
+# Microdatos del INEI: cada uno los baja (ver README)
+datos/
+# Base limpia: se regenera con la skill limpiando-enaho
+salidas/*.parquet
+# Transcripciones completas de claude -p (pesadas)
+evaluacion/corridas/*/transcripcion.jsonl
+.venv/
+__pycache__/
+*.pyc
+.claude/settings.local.json
