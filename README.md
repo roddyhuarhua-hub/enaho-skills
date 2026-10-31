@@ -17,7 +17,28 @@ solo pedido activa dos skills seguidas.
 
 ## Resultados
 
-<!-- RESULTADOS -->
+La limpieza replica al INEI: **27.58 %** de pobreza monetaria (oficial 27.6 %) y **108,664** residentes habituales.
+Pasaron los 13 chequeos de [`salidas/validacion.txt`](salidas/validacion.txt).
+
+| Cifra | Este repo | INEI |
+|---|---|---|
+| Pobreza monetaria (sumaria, `factor07 × mieperho`) | 27.58 % | 27.6 % |
+| Pobreza monetaria (personas, `facpob07`) | 27.53 % | 27.6 % |
+| Pobreza extrema | 5.50 % | 5.5 % |
+| Urbana / rural | 24.81 % / 39.30 % | 24.8 % / 39.3 % |
+| Hogares / filas del módulo 02 / residentes | 33,691 / 117,721 / 108,664 | iguales |
+
+<p align="center">
+  <img src="mapas/pobreza_departamento.png" width="420" alt="Mapa de pobreza por departamento 2024">
+  <img src="figuras/pobre_por_area_2024.png" width="420" alt="Pobreza urbana y rural 2024">
+</p>
+
+Más pobreza: Cajamarca 45.0 %, Loreto 42.6 %, Puno 40.4 %. Menos pobreza: Ica 5.9 %, Moquegua 10.9 %, Madre de Dios
+11.1 %. Los 25 departamentos tienen dato; la diferencia máxima con la referencia del curso es 0.52 puntos (Puno),
+porque aquí se pondera a personas con `facpob07`.
+
+Más figuras en [`figuras/`](figuras/): por sexo, grupo de edad y departamento. La evaluación con y sin skills está en
+[`evaluacion.md`](evaluacion.md): los pedidos del gráfico urbano/rural y del mapa activaron **dos skills seguidas**.
 
 ## Cómo correrlo
 

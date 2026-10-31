@@ -88,7 +88,8 @@ def correr(nombre: str, pedido: str, con_skills: bool) -> dict:
     (destino / "respuesta.md").write_text(respuesta, encoding="utf-8")
     (destino / "transcripcion.jsonl").write_text(proc.stdout, encoding="utf-8")
     for png in carpeta.rglob("*.png"):
-        if ".venv" not in png.parts:
+        # referencias/ trae el mapa del profesor: no es una figura que Claude haya hecho
+        if ".venv" not in png.parts and "referencias" not in png.parts:
             shutil.copy(png, destino / png.name)
     shutil.rmtree(carpeta, ignore_errors=True)
 
